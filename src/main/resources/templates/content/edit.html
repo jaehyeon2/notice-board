@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판</title>
+  <nav>
+    글수성
+  </nav>
+  <div align="right">
+    <br/>
+    <button style="height: 40px; background-color: greenyellow;"
+            onclick="location.href='/'"> 홈으로 </button>
+  </div>
+</head>
+<body>
+<br/>
+<div align="center">
+  <div class="container" align="left" style="padding-left: 50px;">
+    <!--<form action="/content/edit" method="post"> -->
+    <form th:action="${content.id}" method="post">
+      <div class="form-group">
+        <br/><br/>
+        <span>카테고리 : </span>
+        <span th:text="${content.category.name}"></span>
+        <br/><br/>
+        <label for="status">공개여부 : </label>
+        <select id="status" name="status">
+          <option value="visible">공개</option>
+          <option value="hidden">숨김</option>
+        </select>
+        <br/><br/>
+        <span>작성자 : </span>
+        <span th:text="${content.user.nickname}"></span>
+        <br/><br/>
+        <span>제목 : </span>
+        <span th:text="${content.title}"></span>
+        <br/><br/>
+        <label for="text">내용 : </label>
+        <br/><br/>
+        <textarea cols="100" rows="10" id="text" name="text" style="border: 3px solid black;"
+                  th:text="${content.text}"></textarea>
+        <br/><br/>
+        <label for="password">작성자 비밀번호 : </label>
+        <input name="password" id="password" placeholder="비밀번호를 입력하세요." style="width: 400px;">
+        <br/><br/>
+      </div>
+      <div align="center">
+        <button type="submit" style="height: 50px;">수정</button>
+      </div>
+      <br/>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+
+<style>
+  nav {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bolder;
+    background-color: skyblue;
+    padding-top: 10px;
+    height: 50px;
+  }
+  .container {
+    width: 800px;
+    border: 5px solid;
+  }
+  input {
+    border: 3px solid black;
+    width: 200px;
+    height: 30px;
+  }
+  label, span {
+    font-weight: bolder;
+    font-size: large;
+  }
+  button {
+    width: 150px;
+    height: 70px;
+    background-color: yellow;
+    font-weight: bolder;
+    font-size: x-large;
+    border: 3px solid;
+    border-radius: 15px;
+  }

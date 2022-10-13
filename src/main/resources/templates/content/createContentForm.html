@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>게시판</title>
+	<nav>
+		글작성
+	</nav>
+	<div align="right">
+		<br/>
+		<button style="height: 40px; background-color: greenyellow;"
+				onclick="location.href='/'"> 홈으로 </button>
+	</div>
+</head>
+<body>
+<br/>
+<div align="center">
+	<div class="container" align="left" style="padding-left: 50px;">
+		<form action="/content/write" method="post" th:object="${contentForm}">
+			<div class="form-group">
+				<br/><br/>
+				<label for="category">카테고리 : </label>
+				<select id="category" name="categoryId">
+					<option value="">카테고리 선택</option>
+					<option th:each="category : ${categories}"
+							th:value="${category.id}"
+							th:text="${category.name}"/>
+				</select>
+				<br/><br/>
+				<label for="status">공개여부 : </label>
+				<select id="status" name="status">
+					<option value="visible">공개</option>
+					<option value="hidden">숨김</option>
+				</select>
+				<br/><br/>
+				<label for="user">작성자 : </label>
+				<select id="user" name="userId">
+					<option value="">작성자 선택</option>
+					<option th:each="user : ${users}"
+							th:value="${user.id}"
+							th:text="${user.nickname}"/>
+				</select>
+				<br/><br/>
+				<label th:for="title">제목 : </label>
+				<input th:field="*{title}" placeholder="제목을 입력하세요." style="width: 400px;"
+					   th:style="${#fields.hasErrors('title')}? 'border-color: red;'">
+				<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="padding: unset;">Incorrect date</p>
+
+
+				<br/><br/>
+				<label th:for="text">내용 : </label>
+				<br/><br/>
+				<textarea cols="100" rows="10" th:field="*{text}" style="border: 3px solid black;"></textarea>
+				<br/><br/>
+			</div>
+			<div align="center">
+				<button type="submit" style="height: 50px;">제출</button>
+			</div>
+			<br/>
+		</form>
+	</div>
+</div>
+</body>
+</html>
+
+<style>
+    nav {
+        text-align: center;
+        font-size: x-large;
+        font-weight: bolder;
+        background-color: skyblue;
+        padding-top: 10px;
+        height: 50px;
+    }
+    .container {
+        width: 800px;
+        border: 5px solid;
+    }
+    input {
+        border: 3px solid black;
+        width: 200px;
+        height: 30px;
+    }
+    label, span {
+        font-weight: bolder;
+        font-size: large;
+    }
+    button {
+        width: 150px;
+        height: 70px;
+        background-color: yellow;
+        font-weight: bolder;
+        font-size: x-large;
+        border: 3px solid;
+        border-radius: 15px;
+    }
+</style>

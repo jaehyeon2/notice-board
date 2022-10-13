@@ -105,7 +105,7 @@ public class ContentController {
             }
             return "redirect/";
         }else{
-            return "redirect/content.edit/{contentId}";
+            return "redirect/content/edit/{contentId}";
         }
     }
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>게시판</title>
+	<nav>
+		홈페이지
+	</nav>
+	<div align="right">
+		<br/>
+		<button style="height: 40px; background-color: greenyellow;"
+				onclick="location.href='/'"> 홈으로 </button>
+	</div>
+</head>
+<body>
+<br/>
+<div align="center">
+	<div class="container" align="center">
+		<br/><br/>
+		<button onclick="location.href='./user/signup'" style="margin-right: 50px">회원 가입</button>
+		<button onclick="location.href='./user/userList'" style="margin-right: 50px">회원 조회</button>
+		<button onclick="location.href='./content/write'"
+				style="background-color: deeppink">글 작성</button>
+		<br/><br/>
+		<button class="category_button" onclick="location.href='./content/contentListC/1'" style="margin-right: 50px">카테고리1</button>
+		<button class="category_button" onclick="location.href='./content/contentListC/2'" style="margin-right: 50px">카테고리2</button>
+		<button class="category_button" onclick="location.href='./content/contentListC/3'">카테고리3</button>
+		<br/><br/><br/>
+	</div>
+</div>
+</body>
+</html>
+
+<style>
+    nav {
+        text-align: center;
+        font-size: x-large;
+        font-weight: bolder;
+        background-color: skyblue;
+        padding-top: 10px;
+        height: 50px;
+    }
+    .container {
+        width: 800px;
+        border: 5px solid;
+    }
+    button {
+        width: 150px;
+        height: 70px;
+        background-color: yellow;
+        font-weight: bolder;
+        font-size: x-large;
+        border: 3px solid;
+        border-radius: 15px;
+    }
+    .category_button {
+        background-color: orange;
+    }
+</style>

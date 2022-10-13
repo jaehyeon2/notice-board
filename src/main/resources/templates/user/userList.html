@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>게시판</title>
+	<nav>
+		유저 리스트
+	</nav>
+	<div align="right">
+		<br/>
+		<button style="height: 40px; background-color: greenyellow;"
+				onclick="location.href='/'"> 홈으로 </button>
+	</div>
+</head>
+<body>
+<br/>
+<div align="center">
+	<div class="container" align="center">
+		<table border="1"width="800px" align="center">
+			<thead>
+			<tr>
+				<th width="100px;">#</th>
+				<th width="400px;">닉네임</th>
+				<th width="100px;">글갯수</th>
+				<th width="200px;">작성글보기</th>
+			</tr>
+			</thead>
+			<tbody align="center">
+			<tr th:each="user: ${users}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.nickname}"></td>
+				<td th:text="${user.contents.size()}"></td>
+				<td><button th:onclick="|location.href='@{/content/contentListU/}'+ ${user.id}|" >보기</button></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>
+
+<style>
+    nav {
+        text-align: center;
+        font-size: x-large;
+        font-weight: bolder;
+        background-color: skyblue;
+        padding-top: 10px;
+        height: 50px;
+    }
+    .container {
+        width: 800px;
+        border: 5px solid;
+    }
+    button {
+        width: 150px;
+        height: 40px;
+        background-color: yellow;
+        font-weight: bolder;
+        font-size: x-large;
+        border: 3px solid;
+        border-radius: 15px;
+    }
+</style>
